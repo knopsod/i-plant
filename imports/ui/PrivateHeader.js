@@ -21,6 +21,6 @@ PrivateHeader.propTypes = {
 
 export default createContainer(() => {
   return {
-    handleLogout: () =>Accounts.logout()
+    handleLogout: () => Accounts.logout()
   };
 }, PrivateHeader);
