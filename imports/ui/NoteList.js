@@ -1,15 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Session } from 'meteor/session';
 
 import { Notes } from '../api/notes'
 import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
-
-// 1. Create new file. Setup default export for functional component
-// 2. Pick some text
-// 3. Setup NoteList to render empty note message when notes array is empty
 
 export const NoteList = (props) => {
   return (
@@ -29,9 +26,19 @@ NoteList.propTypes = {
 };
 
 export default createContainer(() => {
+  const selectedNoteId = Session.get('selectedNoteId');
+
   Meteor.subscribe('notes');
 
+  // Take note andd seelcted propety to object
+  // set to tre if match, false if not
+
   return {
-    notes: Notes.find().fetch()
+    notes: Notes.find().fetch().map((note) => {
+      return {
+        ...note,
+        selected: note._id === selectedNoteId
+      };
+    })
   };
 }, NoteList);
