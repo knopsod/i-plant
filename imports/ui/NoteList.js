@@ -30,9 +30,6 @@ export default createContainer(() => {
 
   Meteor.subscribe('notes');
 
-  // Take note andd seelcted propety to object
-  // set to tre if match, false if not
-
   return {
     notes: Notes.find().fetch().map((note) => {
       return {
