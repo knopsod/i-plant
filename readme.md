@@ -22,6 +22,6 @@ Running the tests is easy. All you have to do is run the following command and v
 npm test
 ```
 
-## Example web on heroku
+## Example app on heroku
 
 https://notes-noppadon.herokuapp.com
