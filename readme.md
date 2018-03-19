@@ -1,4 +1,4 @@
-# Notes App
+# i-Plant App
 
 This is a notes application built on Meteor and created for my Udemy course.
 
